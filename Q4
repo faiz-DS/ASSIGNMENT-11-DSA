@@ -1,0 +1,8 @@
+def string_length_recursive(s):
+    if s == "":
+        return 0
+    return 1 + string_length_recursive(s[1:])
+
+# Test cases
+print(string_length_recursive("abcd"))  # Output: 4
+print(string_length_recursive("GEEKSFORGEEKS"))  # Output: 13

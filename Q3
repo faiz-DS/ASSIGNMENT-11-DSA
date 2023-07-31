@@ -1,0 +1,16 @@
+def generate_subsets(s):
+    def generate_subsets_recursive(subset, index):
+        if index == len(s):
+            subsets.append(subset)
+            return
+
+        generate_subsets_recursive(subset, index + 1)  # Exclude current character
+        generate_subsets_recursive(subset + s[index], index + 1)  # Include current character
+
+    subsets = []
+    generate_subsets_recursive("", 0)
+    return subsets
+
+# Test cases
+print(generate_subsets("abc"))  # Output: ['', 'c', 'b', 'bc', 'a', 'ac', 'ab', 'abc']
+print(generate_subsets("abcd"))  # Output: ['', 'd', 'c', 'cd', 'b', 'bd', 'bc', 'bcd', 'a', 'ad', 'ac', 'acd', 'ab', 'abd', 'abc', 'abcd']

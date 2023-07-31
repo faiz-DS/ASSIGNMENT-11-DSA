@@ -1,0 +1,16 @@
+def count_contiguous_substrings(S):
+    count = 0
+    n = len(S)
+
+    for i in range(n):
+        j = i
+        while j < n:
+            if S[i] == S[j]:
+                count += 1
+            j += 1
+
+    return count
+
+# Test cases
+print(count_contiguous_substrings("abcab"))  # Output: 7
+print(count_contiguous_substrings("aba"))    # Output: 4

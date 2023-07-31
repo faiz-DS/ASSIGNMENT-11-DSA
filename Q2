@@ -1,0 +1,20 @@
+def last_remaining(n):
+    def remove_numbers(arr, left_to_right):
+        if len(arr) == 1:
+            return arr[0]
+
+        if left_to_right:
+            # Remove every other number from left to right
+            return remove_numbers(arr[1::2], not left_to_right)
+        else:
+            # Remove every other number from right to left
+            return remove_numbers(arr[-2::-2], not left_to_right)
+
+    # Create the initial list [1, 2, 3, ..., n]
+    arr = list(range(1, n + 1))
+
+    return remove_numbers(arr, True)
+
+# Test cases
+print(last_remaining(9))  # Output: 6
+print(last_remaining(1))  # Output: 1
